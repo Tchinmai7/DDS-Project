@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7690e286-da08-4a5b-a900-a90d00c5f1bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Phase1/src/main/scala/cse512/SpatialQuery.scala" beforeDir="false" afterPath="$PROJECT_DIR$/Phase1/src/main/scala/cse512/SpatialQuery.scala" afterDir="false" />
-    </list>
+    <list default="true" id="7690e286-da08-4a5b-a900-a90d00c5f1bf" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
