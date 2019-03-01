@@ -4,11 +4,43 @@ import org.apache.spark.sql.SparkSession
 
 object SpatialQuery extends App{
   def Contains(queryRect:String, pointString:String): Boolean = {
-    return true
+    var rectPoints = queryRect.split(",")
+    var firstX = rectPoints(0).trim().toDouble
+    var firstY = rectPoints(1).trim().toDouble
+    var secondX = rectPoints(2).trim().toDouble
+    var secondY = rectPoints(3).trim().toDouble
+
+    var point = pointString.split(",")
+    var pointX = point(0).trim().toDouble
+    var pointY = point(1).trim().toDouble
+
+    var largeX = math.max(firstX, secondX)
+    var largeY = math.max(firstY, secondY)
+
+    var smallX = math.min(firstX, secondX)
+    var smallY = math.min(firstY, secondY)
+    if (pointX >= smallX && pointY >= smallY && pointX <= largeX && pointY <= largeY) {
+      return true
+    } else {
+      return false
+    }
   }
 
-  def Within(point1:String, point2:String,  distance:Double): Boolean = {
-    return true
+  def Within(pointString1:String, pointString2:String,  distance:Double): Boolean = {
+    var point1 = pointString1.split(",")
+    var point1X = point1(0).trim().toDouble
+    var point1Y = point1(1).trim().toDouble
+
+    var point2 = pointString2.split(",")
+    var point2X = point2(0).trim().toDouble
+    var point2Y = point2(1).trim().toDouble
+
+    var originalDistance = math.sqrt(math.pow((point1X - point2X), 2)  + math.pow((point1Y - point2Y) , 2))
+    if (originalDistance <= distance) {
+      return true
+    } else {
+      return false
+    }
   }
   def runRangeQuery(spark: SparkSession, arg1: String, arg2: String): Long = {
 
