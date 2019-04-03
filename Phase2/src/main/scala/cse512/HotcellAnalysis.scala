@@ -19,15 +19,9 @@ def runHotcellAnalysis(spark: SparkSession, pointPath: String): DataFrame =
   pickupInfo.show()
 
   // Assign cell coordinates based on pickup points
-  spark.udf.register("CalculateX",(pickupPoint: String)=>((
-    HotcellUtils.CalculateCoordinate(pickupPoint, 0)
-    )))
-  spark.udf.register("CalculateY",(pickupPoint: String)=>((
-    HotcellUtils.CalculateCoordinate(pickupPoint, 1)
-    )))
-  spark.udf.register("CalculateZ",(pickupTime: String)=>((
-    HotcellUtils.CalculateCoordinate(pickupTime, 2)
-    )))
+  spark.udf.register("CalculateX",(pickupPoint: String)=> HotcellUtils.CalculateCoordinate(pickupPoint, 0))
+  spark.udf.register("CalculateY",(pickupPoint: String)=> HotcellUtils.CalculateCoordinate(pickupPoint, 1))
+  spark.udf.register("CalculateZ",(pickupTime: String)=> HotcellUtils.CalculateCoordinate(pickupTime, 2))
   pickupInfo = spark.sql("select CalculateX(nyctaxitrips._c5),CalculateY(nyctaxitrips._c5), CalculateZ(nyctaxitrips._c1) from nyctaxitrips")
   var newCoordinateName = Seq("x", "y", "z")
   pickupInfo = pickupInfo.toDF(newCoordinateName:_*)

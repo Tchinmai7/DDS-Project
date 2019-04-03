@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phase2_4015.iml" filepath="$PROJECT_DIR$/.idea/modules/phase2_4015.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phase2_4015-build.iml" filepath="$PROJECT_DIR$/.idea/modules/phase2_4015-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CSE512-Hotspot-Analysis-Template.iml" filepath="$PROJECT_DIR$/.idea/modules/CSE512-Hotspot-Analysis-Template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CSE512-Hotspot-Analysis-Template-build.iml" filepath="$PROJECT_DIR$/.idea/modules/CSE512-Hotspot-Analysis-Template-build.iml" />
     </modules>
   </component>
 </project>

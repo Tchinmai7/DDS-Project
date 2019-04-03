@@ -16,7 +16,7 @@ object HotzoneAnalysis {
     pointDf.createOrReplaceTempView("point")
 
     // Parse point data formats
-    spark.udf.register("trim",(string : String)=>(string.replace("(", "").replace(")", "")))
+    spark.udf.register("trim",(string : String)=> string.replace("(", "").replace(")", ""))
     pointDf = spark.sql("select trim(_c5) as _c5 from point")
     pointDf.createOrReplaceTempView("point")
 

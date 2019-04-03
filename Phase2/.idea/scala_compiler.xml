@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="phase2_4015" />
+    <profile name="sbt 1" modules="CSE512-Hotspot-Analysis-Template,phase2_4015" />
   </component>
 </project>
