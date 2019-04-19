@@ -1,7 +1,7 @@
 package cse512
 
 object HotzoneUtils {
-
+  //Returns True if a point is in a rectangle, else false.
   def ST_Contains(queryRectangle: String, pointString: String ): Boolean = {
     val rectPoints = queryRectangle.split(",")
     val firstX = rectPoints(0).trim().toDouble
@@ -26,6 +26,5 @@ object HotzoneUtils {
     }
   }
 
-  // YOU NEED TO CHANGE THIS PART
 
 }
