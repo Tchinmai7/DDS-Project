@@ -69,13 +69,15 @@ object HotcellUtils {
     if (inputZ == minZ || inputZ == maxZ) {
       numCells += 1
     }
+    var returnValue = 26
     // Based on the number of closeby cells, return 17 (1 neighbor), 11 (2 neighbors), 7 (3 neighbors), 26 (none)
     numCells match {
-      case 1 => 17
-      case 2 => 11
-      case 3 => 7
-      case _ => 26
+      case 1 => returnValue = 17
+      case 2 => returnValue = 11
+      case 3 => returnValue = 7
+      case _ => returnValue =  26
     }
+    returnValue
   }
 
   def getGScore(x: Int, y: Int, z: Int, countN: Int, sumN: Int, numCells: Int, mean: Double, sd: Double): Double =
