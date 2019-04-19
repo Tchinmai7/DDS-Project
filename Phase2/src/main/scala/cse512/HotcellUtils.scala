@@ -47,5 +47,41 @@ object HotcellUtils {
     return calendar.get(Calendar.DAY_OF_MONTH)
   }
 
-  // YOU NEED TO CHANGE THIS PART
+  // Utility that returns square of a number
+  def square (a:Int) : Double =
+  {
+    (a * a).toDouble
+  }
+
+  // Method that counts the number of neighbors for each cell, given the min,max and input value.
+  def CountNeighbours(minX: Int, minY: Int, minZ: Int, maxX: Int, maxY: Int, maxZ: Int, inputX: Int, inputY: Int, inputZ: Int): Int =
+  {
+    var numCells = 0
+    // If the input is at the boundaries, increment the number of neighboring cells.
+    if (inputX == minX || inputX == maxX) {
+      numCells += 1
+    }
+
+    if (inputY == minY || inputY == maxY) {
+      numCells += 1
+    }
+
+    if (inputZ == minZ || inputZ == maxZ) {
+      numCells += 1
+    }
+    // Based on the number of closeby cells, return 17 (1 neighbor), 11 (2 neighbors), 7 (3 neighbors), 26 (none)
+    numCells match {
+      case 1 => 17
+      case 2 => 11
+      case 3 => 7
+      case _ => 26
+    }
+  }
+
+  def getGScore(x: Int, y: Int, z: Int, countN: Int, sumN: Int, numCells: Int, mean: Double, sd: Double): Double =
+  {
+    val numerator = sumN.toDouble - (mean * countN.toDouble)
+    val denominator = sd * math.sqrt(((numCells.toDouble * countN.toDouble) - (countN.toDouble * countN.toDouble))/(numCells.toDouble - 1.0))
+    numerator / denominator
+  }
 }
