@@ -48,10 +48,12 @@ object HotcellAnalysis {
     // First get the points that fall into the cube.
     val givenPoints = spark.sql("select x, y, z from pickupinfo where x >= " + minX + " and y >= " + minY  + " and z >= " + minZ + " and x <= " + maxX + " and y <= " + maxY +  " and z <= " + maxZ + " order by z, y, x").persist()
     givenPoints.createOrReplaceTempView("givenPoints")
+    givenPoints.show()
 
     // Get the points and the number of values for each set
     val pointsAndCount = spark.sql("select x, y, z, count(*) as pointValues from givenPoints group by z, y, x order by z, y, x").persist()
     pointsAndCount.createOrReplaceTempView("pointsAndCount")
+    pointsAndCount.show()
 
     // Calculate the sum and the sum of the Squares of the points.
     val sumofPoints = spark.sql("select sum(pointValues) as sumVal, sum(square(pointValues)) as squaredSum from pointsAndCount")
